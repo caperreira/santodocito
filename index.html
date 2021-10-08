@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SantoDocito</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Icones -->
+    <link rel="stylesheet" href="./Assets/icon/style.css" />
+
+    <!---- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Birthstone&family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allison&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header id="header">
+      <nav class="container">
+        <a class="logo logo-alt" href="#inicio">Santo Docito </a>
+        <div class="menu">
+          <ul class="grid">
+            <li><a class="title" href="#inicio">Inicio</a></li>
+            <li><a class="title" href="#produtos">Produtos</a></li>
+            <li><a class="title" href="#sobre">Sobre</a></li>
+            <li><a class="title" href="#contato">Contato</a></li>
+            <li>
+              <a class="title" href="./cardapio.html" target="_blank"
+                >Cardápio</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="alternancia icon-menu"></div>
+        <div class="alternancia icon-close"></div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section" id="inicio">
+        <div class="container grid">
+          <div class="imagem">
+            <img
+              id="imgInicio"
+              src="./Assets/Image/ImagemInicial.jpg"
+              alt="Imagem de Doces"
+            />
+          </div>
+
+          <div class="texto">
+            <h1 class="title">O melhor brigadeiro da região</h1>
+
+            <p>
+              Venha conhecer as delicias da brigadeiria
+              <span class="logo">Santo Docito</span>.
+            </p>
+            <a
+              class="button no-style"
+              href="https://api.whatsapp.com/send?phone=+5543996408552&text=Ola, gostaria de fazer um pedido! "
+              target="_blank"
+              ><span class="icon-whatsapp"></span> Faça se seu pedido</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+
+      <section class="section" id="produtos">
+        <div id="cardsContainer" class="container grid">
+          <header>
+            <h2 class="title">Produtos</h2>
+            <p>Doces feito com muito carinho e amor.</p>
+          </header>
+          <div class="cards grid">
+            <div class="card">
+              <img class="imgproduto" src="./Assets/Image/Brigadeiro.jpg" />
+              <h3 class="title">Brigadeiro</h3>
+              <p>Foquem no brilho desse brigadeiro</p>
+            </div>
+            <div class="card">
+              <img class="imgproduto" src="./Assets/Image/Kinder Bueno.jpg" />
+              <h3 class="title">Kinder Bueno</h3>
+              <p>
+                Deliciosa massa mesclada, recheada com pedaço do Kinder e
+                passada no granulado vermicelli de chocolate branco Melken.
+              </p>
+            </div>
+            <div class="card">
+              <img
+                class="imgproduto"
+                src="./Assets/Image/Coxinha_Morango].jpg"
+              />
+              <h3 class="title">Coxinha de Morango</h3>
+              <p>Nossas delícias com morango</p>
+            </div>
+          </div>
+          <a href="./cardapio.html" target="_blank" class="menuOptions"
+            >Cardápio
+          </a>
+        </div>
+      </section>
+
+      <div class="divider-2"></div>
+
+      <section class="section grid" id="sobre">
+        <div class="container">
+          <div class="imgSobre">
+            <img src="./Assets/Image/sobre.jpg" alt="Imagem de brigadeiros" />
+          </div>
+          <div class="textSobre">
+            <h2 class="title">Sobre nós</h2>
+
+            <p>
+              Somos uma empresa familiar, com o intuito de buscar a excelência
+            </p>
+            <br />
+            <p>
+              Nossos produtos são feitos com ingredientes de exelencia, para
+              levar até você uma maravilho docinho
+            </p>
+            <br />
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit est
+              dolores reprehenderit optio quia minus magnam adipisci veniam
+              recusandae culpa rem.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="section" id="contato">
+        <div class="container grid">
+          <div class="brand">
+            <a class="logo logo-alt" href="#inicio">Santo Docito </a>
+            <p>2021 Santo Docito</p>
+            <p>Todos os direitos reservados</p>
+          </div>
+          <div class="contato">
+            <div class="text">
+              <h2 class="subtitle">Entre em contato conosco</h2>
+            </div>
+            <div class="link">
+              <ul>
+                <li>
+                  <i class="icon-phone"> </i>
+                  <a href="tel:+55 43 996408552"> (43) 99640-8552 </a>
+                </li>
+                <li>
+                  <i class="icon-map-pin"> Rua das Ruas, 133, Apucarana-PR </i>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="social grid">
+            <p>Acesse nossas redes sociais</p>
+            <a
+              href="https://www.instagram.com/santodocitooficial/"
+              target="_blank"
+              ><i class="icon-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <a href="#" class="back-to-top"><i class="icon-arrow-up"></i></a>
+
+    <script src="main.js"></script>
+  </body>
+</html>

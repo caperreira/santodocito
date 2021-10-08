@@ -1,0 +1,623 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none; /* Removendo a linha sublinhado de todas as tegs ancoras*/
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.logo {
+  width: auto;
+  height: auto;
+}
+
+#header .logo {
+  color: #d0b607;
+  font-size: 3.5rem;
+}
+
+:root {
+  --header-height: 4.5rem;
+
+  /* colors */
+  --hue: 330;
+  /* HSL color mode */
+  --base-color: hsl(var(--hue) 36% 57%);
+  --base-color-second: hsl(var(--hue) 65% 88%);
+  --base-color-alt: hsl(var(--hue) 57% 53%);
+  --title-color: hsl(var(--hue) 41% 10%);
+  --text-color: hsl(0 0% 46%);
+  --text-color-light: hsl(0 0% 98%);
+  --body-color: hsl(0 0% 98%);
+
+  /* ==Font---*/
+  --title-font-size: 1.875rem;
+  --subtitle-font-size: 1.5rem;
+  --title-font: 'Poppins', sans-serif;
+  --body-font: 'DM Sans', sans-serif;
+  --logo2-font: 'Birthstone', cursive;
+  --logo-font: 'Allison', cursive;
+}
+
+/* Base*/
+html {
+  scroll-behavior: smooth;
+  transition: 1s;
+}
+
+body {
+  font: 400 1rem var(--body-font);
+  color: var(--text-color);
+  background: var(--body-color);
+  -webkit-font-smoothing: antialiased; /* Vai deixar a cor da font um pouco mais leve*/
+}
+
+#header {
+  padding: 0 1.5rem;
+}
+.title {
+  font: 700 var(--title-font-size) var(--title-font);
+  color: var(--title-color);
+  -webkit-font-smoothing: auto; /* Vai deixar a cor da font um pouco mais leve*/
+}
+
+.button {
+  background: var(--base-color);
+  color: white;
+  height: 3rem;
+  display: inline-flex;
+  padding: 0 2rem;
+  align-items: center;
+  border-radius: 0.25rem;
+  font: 500 1rem var(--body-font);
+}
+
+.button a p {
+  margin-bottom: 0;
+  align-items: center;
+}
+
+.container {
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.section {
+  padding: calc(5rem + var(--header-height)) 0;
+}
+
+.section .subtitle {
+  font-size: var(--subtitle-font-size);
+}
+
+.section head {
+  margin-bottom: 4rem;
+}
+.section head strong {
+  color: var(--base-color);
+}
+
+.logo {
+  font-family: var(--logo-font);
+  font-size: 2rem;
+}
+
+.divider-1 {
+  height: 1px;
+  background-image: linear-gradient(
+    270deg,
+    hsla(var(--hue), 36%, 57%, 1) 0%,
+    hsla(var(--hue), 65%, 88%, 0.34) 100%
+  );
+}
+
+.divider-2 {
+  height: 1px;
+  background-image: linear-gradient(
+    270deg,
+    hsla(var(--hue), 65%, 88%, 0.34) 0%,
+    hsla(var(--hue), 36%, 57%, 1) 100%
+  );
+}
+
+/* Layout */
+#header {
+  border-bottom: 1px solid #e4e4e4;
+  margin-bottom: 2rem;
+  display: flex;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: var(--body-color);
+  width: 100%;
+}
+
+#header.scroll {
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4);
+  transition: 0.2s;
+}
+
+/* Navegação. */
+
+nav {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+nav ul li {
+  align-items: center;
+}
+
+nav ul li a {
+  transition: 0.3s;
+  position: relative;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: var(--base-color);
+}
+
+nav ul li a::after {
+  content: '';
+  width: 0;
+  height: 2px;
+  background: var(--base-color);
+
+  position: absolute;
+  left: 0;
+  bottom: -1.5rem;
+  transition: 0.2s;
+}
+
+nav ul li a:hover {
+  width: 100%;
+}
+
+nav .menu {
+  opacity: 0;
+  visibility: hidden;
+  top: -20rem;
+}
+
+.menu ul {
+  display: none;
+}
+
+nav.show .menu {
+  opacity: 1;
+  visibility: visible;
+
+  background: var(--body-color);
+
+  height: 100vh;
+  width: 100vw;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: grid;
+  place-content: center;
+}
+
+nav.show .menu ul {
+  display: grid;
+}
+
+nav.show .menu ul.grid {
+  gap: 4rem;
+}
+
+/*Menu / liga e desliga o menu*/
+.alternancia {
+  color: var(--base-color);
+  font-size: 1.5rem;
+  cursor: pointer; /*muda o cursor ao parar o mause em cima do ponteiro*/
+}
+
+nav .icon-close {
+  visibility: hidden; /* oculta a visibilidade do icone*/
+  opacity: 0;
+
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  transition: 0.2s;
+}
+
+nav.show .icon-close {
+  visibility: visible;
+  opacity: 1;
+  top: 1.5rem;
+}
+
+/* Seções == Inicio*/
+
+#inicio {
+  overflow: hidden;
+}
+
+.container {
+  margin: 0;
+}
+
+#inicio .imagem {
+  position: relative;
+}
+
+#inicio .imagem::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background-color: var(--base-color-second);
+  position: absolute;
+  top: -16%;
+  left: 16%;
+  z-index: -1;
+}
+
+#inicio .imagem img {
+  position: relative; /*O position relative, habilita algumas opções do CSS */
+  right: 2.93rem;
+}
+
+#inicio .imagem img {
+  border-radius: 0.25rem;
+}
+#inicio .imagem::before {
+  border-radius: 3rem;
+}
+
+#inicio .texto {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: center;
+}
+
+/* Seções == Produtos*/
+
+.texto h1 {
+  margin-bottom: 1rem;
+}
+
+.texto p {
+  margin-bottom: 2rem;
+  max-width: 100%;
+}
+.section .card {
+  padding: 3.62rem 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 10%);
+  border-bottom: 0.5rem solid var(--base-color-second);
+  text-align: center;
+}
+.cards .imgproduto {
+  width: 10rem;
+  height: auto;
+  border-radius: 100%;
+}
+
+.cards h3 {
+  font-size: 1.5rem;
+}
+
+.menuOptions {
+  padding: 1rem 1rem 1rem 1.8rem;
+  color: var(--text-color-light);
+  background: var(--base-color);
+  align-items: center;
+  display: inline-flex;
+  border-radius: 0.3rem;
+  height: 3rem;
+  font: var(--subtitle-font-size);
+  width: 8rem;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Seções == sobre*/
+
+.section .imgSobre {
+  position: relative;
+}
+
+.section .imgSobre::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: var(--base-color-second);
+  position: absolute;
+  top: -16%;
+  right: 16%;
+  z-index: -1;
+}
+
+.section .imgSobre img {
+  position: relative;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.section .imgSobre img {
+  border-radius: 0.25rem;
+}
+
+.section .imgSobre::before {
+  border-radius: 3rem;
+}
+
+#sobre .textSobre {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.section .container {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.section .subtitle {
+  margin-bottom: 1rem;
+}
+
+/* Seções == Footer*/
+
+footer.section {
+  background: var(--base-color);
+  padding: 3.75rem 0;
+}
+
+footer .container {
+  grid-auto-flow: row;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+/*Contato*/
+.section .link {
+  margin: 1.5rem 0 1.5rem;
+}
+.section .link ul li {
+  margin-bottom: 1rem;
+}
+
+.section .link ul li a {
+  text-decoration: none;
+  font: 400 1rem var(--body-font);
+  color: white;
+}
+
+.section .contato {
+  color: white;
+  align-items: center;
+  text-align: center;
+}
+
+.brand,
+.brand a.logo-alt {
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.brand a.logo-alt {
+  font-size: 50px;
+}
+
+.section .social {
+  text-align: center;
+}
+.section .social p {
+  color: white;
+}
+
+.section .social i.icon-instagram {
+  color: white;
+  font-size: 2rem;
+
+  transition: 0.5s;
+}
+
+/* Voltar ao topo */
+.back-to-top {
+  opacity: 0;
+  background: var(--base-color);
+  color: var(--text-color-light);
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  clip-path: circle();
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  line-height: 0;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.back-to-top.show {
+  visibility: visible;
+  opacity: 0.5;
+  transform: translateY();
+}
+
+@media (min-width: 992px) {
+  :root {
+    --title-font-size: 2.25rem;
+    --subtitle-font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 1021px) {
+  /*ajustar a margem da 1° caixa*/
+  .section {
+    padding: calc(5rem + var(--header-height)) 5rem;
+  }
+
+  #cardsContainer.container {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  nav .menu {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+  nav .menu ul {
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav .menu li a.title {
+    font: 400 1.125rem var(--body-font);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav .menu ul li a.title.active {
+    font-weight: bold;
+    -webkit-font-smoothing: auto;
+  }
+
+  nav .icon-menu {
+    display: none;
+  }
+
+  /* Layout*/
+  main {
+    margin-top: var(--header-height);
+  }
+
+  #inicio .container {
+    grid-auto-flow: column; /* pegou a cointaine e deiuxou em 2 box em colunas*/
+  }
+
+  #inicio .imagem {
+    width: 20rem;
+    height: auto;
+    order: 1; /* inverteu a ordem das imagens deixando na ordem 1 */
+  }
+
+  #inicio .imagem::before {
+    border-radius: 0.3rem;
+  }
+
+  #inicio .texto {
+    order: 0; /* Deixou a box dentro da containe na ordem 0*/
+    max-width: 30rem;
+    margin: 0 5rem;
+    text-align: left;
+  }
+
+  #produtos .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .card {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  #produtos header,
+  #produtos .menuOptions {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #sobre .container {
+    display: flex;
+  }
+
+  #sobre .imgSobre {
+    width: auto;
+    height: auto;
+    order: 0;
+  }
+
+  .section .imgSobre::before {
+    border-radius: 0.3rem;
+  }
+
+  #sobre .textSobre {
+    order: 1;
+  }
+
+  /*footer*/
+
+  footer.section {
+    padding: 3.75rem;
+  }
+
+  footer .container {
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+  }
+
+  footer .logo {
+    font-size: 2.25rem;
+  }
+
+  #cardapio section .container {
+    grid-auto-flow: column;
+    margin-left: 5rem;
+  }
+
+  #cardapio section .realizarPedido {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/*===========================================*/
+
+#cardapio {
+  background: var(--base-color-second);
+}
+#cardapio .container {
+  padding: 1.5rem;
+}
+
+#cardapio .titleCardapio {
+  font-size: 5rem;
+  color: var(--base-color);
+  text-align: center;
+}
+
+#cardapio .subtitleCardapio {
+  margin-bottom: 1rem;
+}
+
+.realizarPedido p {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+#cardapio .realizarPedido .buttonCardapio {
+  align-items: center;
+  text-align: center;
+}
